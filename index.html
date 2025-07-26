@@ -1,78 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Favorite Color Logger</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Safety Testing Site</title>
   <style>
     body {
-      background-color: #0000AA; /* BIOS Blue */
-      color: #FFFFFF;
-      font-family: "Courier New", monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    input[type="text"] {
-      background-color: #000033;
-      color: #FFFFFF;
-      border: 2px solid #FFFFFF;
+      background-color: #0000AA; /* Deep BIOS blue */
       font-family: "Courier New", monospace;
-      padding: 5px;
-      font-size: 18px;
-      width: 300px;
-      margin-bottom: 15px;
+      color: white;
     }
-
-    input[type="submit"] {
-      background-color: #000033;
-      color: #FFFFFF;
-      border: 2px solid #FFFFFF;
-      font-family: "Courier New", monospace;
-      padding: 8px 16px;
-      font-size: 18px;
+    .top-bar {
+      background-color: #3A66A3; /* Windows 11 blue */
+      padding: 10px;
+      text-align: left;
+      font-weight: bold;
+    }
+    .container {
+      text-align: left;
+      padding: 40px;
+    }
+    label, input {
+      font-family: inherit;
+      font-size: 16px;
+    }
+    button {
+      font-family: inherit;
+      font-size: 16px;
+      background-color: #3A66A3;
+      color: white;
+      border: none;
+      padding: 6px 12px;
       cursor: pointer;
     }
-
-    .message {
-      margin-top: 20px;
-      font-size: 20px;
+    button:hover {
+      opacity: 0.9;
+    }
+    #thankYou {
+      display: none;
+      margin-top: 10px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>System Request</h1>
-  <form id="colorForm">
-    <label for="color">Enter your favorite color:</label><br>
-    <input type="text" id="color" name="color" required><br>
-    <input type="submit" value="Submit">
-  </form>
-  <div class="message" id="messageBox"></div>
+  <div class="top-bar">Online Safety Testing Site</div>
+  <div class="container">
+    <form id="colorForm">
+      <label for="color">Enter your favorite color:</label><br />
+      <input type="text" id="color" name="color" /><br /><br />
+      <button type="submit">Submit</button>
+    </form>
+    <div id="thankYou">Thank you.</div>
+  </div>
 
   <script>
     document.getElementById("colorForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      const color = document.getElementById("color").value;
-      const messageBox = document.getElementById("messageBox");
-      messageBox.textContent = "Thank you.";
-
+      document.getElementById("thankYou").style.display = "block";
       const link = document.createElement("a");
-      link.href = "cute_puppy.png";
+      link.href = "cute_puppy.png"; // ensure this file exists in the root of your repo
       link.download = "cute_puppy.png";
-      document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
     });
   </script>
 </body>
