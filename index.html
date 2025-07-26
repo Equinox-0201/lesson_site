@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Favorite Color Download</title>
-<style>
-  body {
-    background-color: #0078D4; /* Windows 11 BIOS blue */
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-  }
-  h2 {
-    margin-bottom: 20px;
-  }
-  input {
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: none;
-    margin-bottom: 10px;
-    width: 200px;
-  }
-  button {
-    padding: 8px 15px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-  }
-  #thankYou {
-    margin-top: 20px;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Favorite Color Logger</title>
+  <style>
+    body {
+      background-color: #0000AA; /* BIOS Blue */
+      color: #FFFFFF;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    input[type="text"] {
+      background-color: #000033;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      font-family: "Courier New", monospace;
+      padding: 5px;
+      font-size: 18px;
+      width: 300px;
+      margin-bottom: 15px;
+    }
+
+    input[type="submit"] {
+      background-color: #000033;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      font-family: "Courier New", monospace;
+      padding: 8px 16px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h2>What's your favorite color?</h2>
-  <input type="text" id="colorInput" placeholder="Type your favorite color" />
-  <button onclick="submitColor()">Submit</button>
-  <div id="thankYou"></div>
+  <h1>System Request</h1>
+  <form id="colorForm">
+    <label for="color">Enter your favorite color:</label><br>
+    <input type="text" id="color" name="color" required><br>
+    <input type="submit" value="Submit">
+  </form>
+  <div class="message" id="messageBox"></div>
 
   <script>
-    function submitColor() {
-      const color = document.getElementById('colorInput').value.trim();
-      const thankYouDiv = document.getElementById('thankYou');
-      if(color === '') {
-        alert('Please enter a color!');
-        return;
-      }
+    document.getElementById("colorForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const color = document.getElementById("color").value;
+      const messageBox = document.getElementById("messageBox");
+      messageBox.textContent = "Thank you.";
 
-      // Trigger download
-      const link = document.createElement('a');
-      link.href = 'cute_puppy.png';  // Make sure this matches your image filename
-      link.download = 'cute_puppy.png';
+      const link = document.createElement("a");
+      link.href = "cute_puppy.png";
+      link.download = "cute_puppy.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-
-      // Show thank you message
-      thankYouDiv.textContent = 'Thank you!';
-    }
+    });
   </script>
 </body>
 </html>
