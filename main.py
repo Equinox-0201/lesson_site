@@ -5,8 +5,8 @@ from email.message import EmailMessage
 app = Flask(__name__)
 
 # Replace with your email and app password
-EMAIL_ADDRESS = "youremail@gmail.com"
-EMAIL_PASSWORD = "your_app_password_here"
+EMAIL_ADDRESS = "eastjvan@gmail.com"
+EMAIL_PASSWORD = "ffyv faam wzwg jano"
 
 @app.route("/submit", methods=["POST"])
 def submit():
